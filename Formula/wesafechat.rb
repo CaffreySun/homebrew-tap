@@ -15,10 +15,10 @@ class Wesafechat < Formula
 
   def post_install
     app_source = prefix/"WeSafeChat.app"
-    app_target = Pathname("/Applications/WeSafeChat.app")
-    app_target.rmtree if app_target.exist?
-    app_target.make_symlink(app_source)
-    ohai "Linked to /Applications/WeSafeChat.app"
+    app_target = "/Applications/WeSafeChat.app"
+    system "rm", "-rf", app_target if File.exist?(app_target) || File.symlink?(app_target)
+    system "ln", "-sf", app_source.to_s, app_target
+    ohai "Linked to #{app_target}"
   end
 
   def caveats
