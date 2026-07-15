@@ -11,14 +11,7 @@ class Wesafechat < Formula
 
   def install
     system "bash", "install.sh", "--no-install", "--output", prefix
-  end
-
-  def post_install
-    app_source = prefix/"WeSafeChat.app"
-    app_target = "/Applications/WeSafeChat.app"
-    system "rm", "-rf", app_target if File.exist?(app_target) || File.symlink?(app_target)
-    system "ln", "-sf", app_source.to_s, app_target
-    ohai "Linked to #{app_target}"
+    system "ln", "-sf", "#{prefix}/WeSafeChat.app", "/Applications/WeSafeChat.app"
   end
 
   def caveats
