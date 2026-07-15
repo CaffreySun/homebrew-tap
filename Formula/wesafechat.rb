@@ -24,6 +24,12 @@ class Wesafechat < Formula
     chmod 0755, bin/"wesafechat-link"
   end
 
+
+  def post_uninstall
+    target = "/Applications/WeSafeChat.app"
+    File.delete(target) if File.symlink?(target)
+  end
+
   def caveats
     <<~EOS
       安装完成后执行以下命令完成链接：
