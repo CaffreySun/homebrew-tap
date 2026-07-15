@@ -11,11 +11,13 @@ class Wesafechat < Formula
 
   def install
     system "bash", "install.sh", "--no-install", "--output", prefix
-    system "ln", "-sf", "#{prefix}/WeSafeChat.app", "/Applications/WeSafeChat.app"
   end
 
   def caveats
     <<~EOS
+      安装完成后，执行以下命令链接到 /Applications：
+        ln -sf #{opt_prefix}/WeSafeChat.app /Applications/WeSafeChat.app
+
       首次启动请在 Finder 中右键 WeSafeChat.app → 打开以绕过 Gatekeeper。
     EOS
   end
