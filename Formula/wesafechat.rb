@@ -1,10 +1,10 @@
 class Wesafechat < Formula
   desc "macOS menu bar tool to auto-hide WeChat for privacy"
   homepage "https://github.com/CaffreySun/wesafechat"
-  url "https://github.com/CaffreySun/wesafechat/archive/refs/tags/v0.2.3.tar.gz"
-  sha256 "66dbf3196326dbd3f7b769e9e3ca7d9234e5addaf0ef173ee0fdcae79d6f67e9"
+  url "https://github.com/CaffreySun/wesafechat/archive/refs/tags/v0.2.4.tar.gz"
+  sha256 "edaadd8a0d353aeefc087fe7179885e2e107ef33558bad6d81688385a49507c5"
   license "MIT"
-  version "0.2.3"
+  version "0.2.4"
 
   depends_on xcode: "15.0"
   depends_on macos: :ventura
