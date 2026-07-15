@@ -13,10 +13,19 @@ class Wesafechat < Formula
     system "bash", "install.sh", "--no-install", "--output", prefix
   end
 
+  def post_install
+    app_source = prefix/"WeSafeChat.app"
+    app_target = Pathname("/Applications/WeSafeChat.app")
+    if app_target.exist? || app_target.symlink?
+      app_target.delete
+    end
+    app_target.make_symlink(app_source)
+    ohai "Linked to /Applications/WeSafeChat.app"
+  end
+
   def caveats
     <<~EOS
-      WeSafeChat.app 已安装到 #{prefix}/WeSafeChat.app。
-      首次启动请在 Finder 中右键 → 打开以绕过 Gatekeeper。
+      首次启动请在 Finder 中右键 WeSafeChat.app → 打开以绕过 Gatekeeper。
     EOS
   end
 end
