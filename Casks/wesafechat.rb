@@ -1,6 +1,6 @@
 cask "wesafechat" do
-  version "0.3.0"
-  sha256 "5e6741c8787f8eda3b2964cf9d1346fc66f75b48b6d4a18d890cd7e7c8e038bc"
+  version "0.3.1"
+  sha256 "0c37939dab2c0f11c4d30646ee8354bf6301c068a67b76bba8ff98fb835c1fcf"
 
   url "https://github.com/CaffreySun/wesafechat/releases/download/v#{version}/WeSafeChat-v#{version}.app.zip"
   name "WeSafeChat"
