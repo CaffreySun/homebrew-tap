@@ -16,9 +16,7 @@ class Wesafechat < Formula
   def post_install
     app_source = prefix/"WeSafeChat.app"
     app_target = Pathname("/Applications/WeSafeChat.app")
-    if app_target.exist? || app_target.symlink?
-      app_target.delete
-    end
+    app_target.rmtree if app_target.exist?
     app_target.make_symlink(app_source)
     ohai "Linked to /Applications/WeSafeChat.app"
   end
