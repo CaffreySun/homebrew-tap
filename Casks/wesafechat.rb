@@ -9,5 +9,10 @@ cask "wesafechat" do
 
   app "WeSafeChat.app"
 
+  postflight do
+    system_command "/usr/bin/xattr",
+      args: ["-rd", "com.apple.quarantine", "#{appdir}/WeSafeChat.app"]
+  end
+
   caveats "首次启动请在 Finder 中右键 → 打开以绕过 Gatekeeper。"
 end
