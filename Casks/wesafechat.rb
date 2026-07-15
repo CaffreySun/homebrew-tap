@@ -14,5 +14,4 @@ cask "wesafechat" do
       args: ["-rd", "com.apple.quarantine", "#{appdir}/WeSafeChat.app"]
   end
 
-  caveats "首次启动请在 Finder 中右键 → 打开以绕过 Gatekeeper。"
 end
