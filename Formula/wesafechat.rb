@@ -10,11 +10,25 @@ class Wesafechat < Formula
   depends_on macos: :ventura
 
   def install
-    system "bash", "install.sh", "--no-install", "--output", prefix, "--link"
+    system "bash", "install.sh", "--no-install", "--output", prefix
+    (bin/"wesafechat-link").write <<~SHELL
+      #!/bin/bash
+      set -e
+      TARGET="/Applications/WeSafeChat.app"
+      SOURCE="#{opt_prefix}/WeSafeChat.app"
+      rm -rf "$TARGET" 2>/dev/null || true
+      ln -sf "$SOURCE" "$TARGET"
+      echo "Linked WeSafeChat.app to /Applications"
+      echo "首次启动请在 Finder 中右键 → 打开"
+    SHELL
+    chmod 0755, bin/"wesafechat-link"
   end
 
   def caveats
     <<~EOS
+      安装完成后执行以下命令完成链接：
+        wesafechat-link
+
       首次启动请在 Finder 中右键 WeSafeChat.app → 打开以绕过 Gatekeeper。
     EOS
   end
